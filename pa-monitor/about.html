@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PA Monitor · SMC 价格提醒</title>
+<style>
+:root{--bg:#0f1115;--fg:#e6e8eb;--up:#4ade80;--warn:#fbbf24;--accent:#60a5fa;--card:#171a21;--line:#2a2f3a;--dim:#9aa3af}
+*{box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--fg);
+max-width:900px;margin:0 auto;padding:44px 22px;line-height:1.75}
+h1{font-size:1.7em;border-bottom:3px solid var(--accent);padding-bottom:12px;margin-bottom:6px}
+.sub{color:var(--dim);margin-bottom:26px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.box h2{font-size:1.02em;margin:0 0 8px;color:var(--accent)}
+ul{margin:6px 0 0 18px;padding:0}
+li{margin:4px 0}
+code{background:#0d0f13;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:.9em}
+.flow{color:var(--dim);font-size:.92em;line-height:2}
+.tag{display:inline-block;background:rgba(74,222,128,.12);color:var(--up);border-radius:20px;
+padding:1px 10px;font-size:.8em;margin-top:6px}
+.foot{color:#5b6470;font-size:.85em;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+a{color:var(--accent)}
+</style></head><body>
+<h1>📡 PA Monitor</h1>
+<div class="sub">SMC 价格提醒工具 · 我负责分析，程序负责盯价格 <span class="tag">pa-monitor</span></div>
+
+<div class="box">
+<h2>它是干什么的</h2>
+<div>在 TradingView 上用 SMC 找到关注的 POI 后，只输入 <b>币种 + 一个触发价格</b>。
+后端持续盯 OKX 实时行情，价格第一次到达就推手机提醒 —— 收到后再打开图表看价格行为。</div>
+<ul>
+<li>程序<b>不判断</b>多空、不识别 SMC、不下单</li>
+<li>方向自动判断：触发价在当前价下方 → 跌到即提醒；上方 → 涨到即提醒</li>
+<li>两级提醒：距目标 0.5% 先来一条「接近」，到价再来一条「到价」，各只发一次</li>
+</ul>
+</div>
+
+<div class="box">
+<h2>工作流</h2>
+<div class="flow">
+TradingView 分析 → 找到 POI → 面板填「HYPE / 51.20」<br>
+→ 程序自动算方向、订阅该币种行情<br>
+→ 后台盯 OKX（关浏览器、关电脑上的网页都不影响）<br>
+→ 接近 → ⚠️ 提醒 ｜ 到达 → 🚨 提醒（微信 + Discord）<br>
+→ 打开 TradingView，自己看 Reaction / Displacement / MSB / BOS，自己决定做不做
+</div>
+</div>
+
+<div class="box">
+<h2>面板与数据</h2>
+<ul>
+<li>面板：本机 <code>http://127.0.0.1:8787/</code>（同一 Wi-Fi 下手机可访问）</li>
+<li>行情：OKX 公共 WebSocket，<b>只读</b>，不需要 API Key，不下单</li>
+<li>存储：SQLite，记录创建价、触发方向、状态、接近是否已发、是否已触发</li>
+<li>提醒状态：监控中 / 接近目标 / 已触发 / 已暂停；已触发保留在历史里，可重新激活或删除</li>
+</ul>
+</div>
+
+<div class="foot">数据源: OKX USDT 永续 | 北京时间 | <a href="https://ktzwei.github.io/">← 返回主页</a> | 2026-09-18 16:23 北京</div>
+</body></html>
