@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PA Monitor · 价格行为监控</title>
+<style>
+:root{--bg:#0f1115;--fg:#e6e8eb;--up:#4ade80;--dn:#f87171;--accent:#60a5fa;--card:#171a21;--line:#2a2f3a}
+*{box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--fg);
+max-width:900px;margin:0 auto;padding:48px 22px;line-height:1.8}
+h1{font-size:1.7em;border-bottom:3px solid var(--accent);padding-bottom:12px;margin-bottom:6px}
+.sub{color:#9aa3af;margin-bottom:28px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:16px}
+.box h2{font-size:1.05em;margin:0 0 8px;color:var(--accent)}
+ul{margin:6px 0 0 18px;padding:0}
+li{margin:4px 0}
+.tag{display:inline-block;background:rgba(96,165,250,.12);color:var(--accent);border-radius:20px;
+padding:1px 10px;font-size:.8em;margin-top:6px}
+.foot{color:#5b6470;font-size:.85em;margin-top:32px;border-top:1px solid var(--line);padding-top:14px}
+a{color:var(--accent)}
+</style></head><body>
+<h1>📡 PA Monitor</h1>
+<div class="sub">价格行为监控 · 骨架已就绪，规则待接入 <span class="tag">pa-monitor</span></div>
+
+<div class="box">
+<h2>当前状态</h2>
+<ul>
+<li>工程已建在 <code>~/code/web3/pa-monitor</code>，与日报类工程同级</li>
+<li>发布管道已通（渲染 → Pages 工作副本 → push）</li>
+<li>监控标的与触发规则：<b>待需求确认</b></li>
+</ul>
+</div>
+
+<div class="box">
+<h2>监控什么</h2>
+<div style="color:#9aa3af">需求落地后这里会显示：监控标的、时间周期、触发条件、最近一次命中。</div>
+</div>
+
+<div class="box">
+<h2>报警去向</h2>
+<ul>
+<li>微信优先推送</li>
+<li>Discord <code>#pa-monitor</code> 只留档</li>
+</ul>
+</div>
+
+<div class="foot">数据源: OKX | 北京时间 | <a href="https://ktzwei.github.io/">← 返回主页</a> | 2026-09-18 15:52 北京</div>
+</body></html>
